@@ -1,0 +1,18 @@
+# agno
+aiosqlite
+alembic
+beautifulsoup4
+black
+EbookLib
+isort
+lxml
+mistralai
+psycopg
+pydantic
+pydantic-settings
+pytest
+redis
+SQLAlchemy
+structlog
+tenacity
+tiktoken
