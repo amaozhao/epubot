@@ -16,3 +16,4 @@ SQLAlchemy
 structlog
 tenacity
 tiktoken
+tqdm
