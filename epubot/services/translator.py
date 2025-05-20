@@ -34,7 +34,7 @@ class Translator:
             first_newline = text.find("\n")
             if first_newline != -1:
                 # 移除开头到第一个换行符之间的内容
-                text = text[first_newline + 1:]
+                text = text[first_newline + 1 :]
             else:
                 # 如果没有换行符，说明整个文本就是一个标记
                 text = text[3:]

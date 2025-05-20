@@ -25,10 +25,7 @@ async def main():
 
     # 添加目标语言代码参数，这是必须的参数
     parser.add_argument(
-        "--target_lang",
-        type=str,
-        default='zh',
-        help="目标语言代码 (例如: zh, fr, es)"
+        "--target_lang", type=str, default="zh", help="目标语言代码 (例如: zh, fr, es)"
     )
 
     # 添加可选的输出文件路径参数
