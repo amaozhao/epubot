@@ -24,7 +24,12 @@ class Settings(BaseSettings):
 
     # LLM API Keys
     deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY", "YOUR_DEEPSEEK_API_KEY")
+    deepseek_model: str = os.getenv('DEEPSEEK_MODEL', 'deepseek-reasoner')
     mistral_api_key: str = os.getenv("MISTRAL_API_KEY", "YOUR_MISTRAL_API_KEY")
+    mistral_model: str = os.getenv("MISTRAL_MODEL", "mistral-small-latest")
+    kimi_api_key: str = os.getenv('KIMI_API_KEY', 'YOUR_KIMI_API_KEY')
+    kimi_base_url: str = os.getenv('KIMI_BASE_URL', 'https://api.moonshot.cn/v1')
+    kimi_model: str = os.getenv('KIMI_MODEL', 'moonshot-v1-auto')
 
     OUTPUT_DIR: str = "output"
 

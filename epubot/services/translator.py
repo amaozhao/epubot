@@ -10,8 +10,6 @@ class Translator:
     _semaphore = asyncio.Semaphore(1)
     _last_request_time = 0
     model = "mistral-small-latest"
-    # model = "mistral-medium-latest"
-    # model = "open-mistral-nemo"
 
     def __init__(self, source_language="English", target_language="Chinese"):
         self.source_language = source_language

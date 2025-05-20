@@ -70,6 +70,21 @@ class EpubParser:
         )
         return self.book
 
+    def parse_toc(self, toc):
+        """
+        递归地将嵌套结构中的 Link/Section 对象替换为其 title 属性，
+        同时保留原始的嵌套（list/tuple）结构。
+        """
+        if isinstance(toc, (epub.Link, epub.Section)):
+            # 如果是 Link/Section 对象，返回其 title
+            return toc.title
+        elif isinstance(toc, (list, tuple)):
+            # 如果是列表，遍历每个元素并递归处理，然后构建新的列表
+            return [self.parse_toc(item) for item in toc]
+        else:
+            # 如果是其他类型（例如字符串、数字等），原样返回
+            return toc
+
 
 if __name__ == "__main__":
     parser = EpubParser("/Users/amaozhao/workspace/epubot/Think-Like-Commoner-2nd.epub")

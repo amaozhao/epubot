@@ -1,5 +1,3 @@
-# epubot/main.py
-
 import argparse
 import asyncio
 import os
@@ -26,7 +24,12 @@ async def main():
     parser.add_argument("input_epub", type=str, help="需要翻译的原始 EPUB 文件路径")
 
     # 添加目标语言代码参数，这是必须的参数
-    parser.add_argument("target_lang", type=str, help="目标语言代码 (例如: zh, fr, es)")
+    parser.add_argument(
+        "--target_lang",
+        type=str,
+        default='zh',
+        help="目标语言代码 (例如: zh, fr, es)"
+    )
 
     # 添加可选的输出文件路径参数
     parser.add_argument(
