@@ -17,3 +17,4 @@ structlog
 tenacity
 tiktoken
 tqdm
+typer

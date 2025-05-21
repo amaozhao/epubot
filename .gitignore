@@ -179,3 +179,4 @@ cython_debug/
 # epub
 *.epub
 .DS_Store
+.translation_state.json

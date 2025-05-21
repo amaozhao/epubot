@@ -20,7 +20,7 @@ class Coordinator:
     ) -> None:
         self.input_epub = input_epub
         self.target_lang = target_lang
-        self.output_file = output_file or f"{input_epub}-{target_lang}.epub"
+        self.output_file = output_file or input_epub.replace(".epub", "-zh.epub")
         self.epub_parser = EpubParser(input_epub)
         self.html_splitter = HTMLSplitter()
         self.html_builder = HTMLBuilder()
@@ -59,11 +59,16 @@ class Coordinator:
             return original_toc
 
     async def translate_toc(self, book):
-        toc_content = self.epub_parser.parse_toc(toc=book.toc)
-        translated = await self.translator.translate(json.dumps(toc_content))
-        translated = translated.strip()
-        translated = json.loads(translated)
-        self._update_toc(book.toc, translated)
+        try:
+            toc_content = self.epub_parser.parse_toc(toc=book.toc)
+            print(f"toc_content: {toc_content}")
+            translated = await self.translator.translate(json.dumps(toc_content))
+            translated = translated.strip()
+            print(f"translated is: {translated}")
+            translated = json.loads(translated)
+            self._update_toc(book.toc, translated)
+        except Exception as e:
+            print("TOC translate error.")
 
     async def translate(self, book) -> None:
         """翻译 EPUB 内容"""
