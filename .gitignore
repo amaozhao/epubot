@@ -181,3 +181,4 @@ cython_debug/
 .DS_Store
 .translation_state.json
 .ruff.toml
+.DS_Store
