@@ -10,9 +10,7 @@ class Settings(BaseSettings):
     Settings can be loaded from environment variables or a .env file.
     """
 
-    model_config = SettingsConfigDict(
-        env_file=".env", extra="ignore"
-    )  # Load from .env, ignore unknown fields
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")  # Load from .env, ignore unknown fields
 
     PROJECT_NAME: str = "Epubot"
 

@@ -63,19 +63,13 @@ def setup_logger():
     else:
         # 控制台格式的日志
         shared_processors.extend(
-            [
-                structlog.dev.ConsoleRenderer(
-                    colors=True, exception_formatter=structlog.dev.plain_traceback
-                )
-            ]
+            [structlog.dev.ConsoleRenderer(colors=True, exception_formatter=structlog.dev.plain_traceback)]
         )
 
     structlog.configure(
         processors=shared_processors,
         logger_factory=structlog.stdlib.LoggerFactory(),
-        wrapper_class=structlog.make_filtering_bound_logger(
-            logging.getLevelName(settings.LOG_LEVEL)
-        ),
+        wrapper_class=structlog.make_filtering_bound_logger(logging.getLevelName(settings.LOG_LEVEL)),
         cache_logger_on_first_use=True,
     )
 

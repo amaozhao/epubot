@@ -1177,5 +1177,46 @@
       "html/534317_2_En_15_Chapter.xhtml",
       "html/Backmatter_001.xhtml"
     ]
+  },
+  "/Users/amaozhao/Downloads/ultimate-web-authentication-handbook-cryptography.epub": {
+    "processed_files": [
+      "nav.xhtml",
+      "ncx.ncx",
+      "cvi.xhtml",
+      "tp.xhtml",
+      "cop.xhtml",
+      "ded.xhtml",
+      "frw.xhtml",
+      "ata.xhtml",
+      "fm.xhtml",
+      "ack.xhtml",
+      "pre.xhtml",
+      "fm1.xhtml",
+      "fm2.xhtml",
+      "toc.xhtml",
+      "c01.xhtml",
+      "c02.xhtml",
+      "c03.xhtml",
+      "c04.xhtml",
+      "c05.xhtml",
+      "c06.xhtml",
+      "c07.xhtml",
+      "appa.xhtml",
+      "appb.xhtml",
+      "appc.xhtml",
+      "ind.xhtml"
+    ]
+  },
+  "/Users/amaozhao/Downloads/practical-deep-learning-2nd.epub": {
+    "processed_files": [
+      "toc.ncx",
+      "xhtml/nav.xhtml",
+      "xhtml/cover.xhtml",
+      "xhtml/title.xhtml",
+      "xhtml/copyright.xhtml",
+      "xhtml/ded.xhtml",
+      "xhtml/about.xhtml",
+      "xhtml/about01.xhtml"
+    ]
   }
 }
