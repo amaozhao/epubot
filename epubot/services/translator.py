@@ -51,10 +51,7 @@ class Translator:
             return content
 
         # 替换指定的标记
-        replacements = {
-            "您": "你",
-            "大型语言模型": " LLM ",
-        }
+        replacements = {"您": "你", "大型语言模型": " LLM "}
         for old, new in replacements.items():
             content = content.replace(old, new)
 
@@ -62,9 +59,7 @@ class Translator:
 
         return content
 
-    async def _translate(
-        self, text: str, source_lang: str, target_lang: str, **kwargs
-    ) -> str:
+    async def _translate(self, text: str, source_lang: str, target_lang: str, **kwargs) -> str:
         """Translate text using Mistral API."""
         # 构建提示内容
         prompt = f"""
@@ -98,26 +93,14 @@ class Translator:
             models.UserMessage(content=prompt),
         ]
 
-        response = await self.client.chat.complete_async(
-            model=self.model,
-            messages=messages,
-            temperature=0.1,
-            **kwargs,
-        )
+        response = await self.client.chat.complete_async(model=self.model, messages=messages, temperature=0.1, **kwargs)
         result = response.choices[0].message.content
 
         return self._replace_designation(result)
 
-    @retry(
-        stop=stop_after_attempt(10),
-        wait=wait_exponential(multiplier=2, min=10, max=30),
-    )
+    @retry(stop=stop_after_attempt(10), wait=wait_exponential(multiplier=2, min=10, max=30))
     async def translate(
-        self,
-        content: str,
-        source_lang: str = "English",
-        target_lang: str = "Chinese",
-        **kwargs,
+        self, content: str, source_lang: str = "English", target_lang: str = "Chinese", **kwargs
     ) -> str:
         """Translate text with rate limiting and concurrency control."""
         async with self._semaphore:  # 使用信号量控制并发
@@ -130,9 +113,7 @@ class Translator:
             self.__class__._last_request_time = asyncio.get_event_loop().time()
 
             try:
-                return await self._translate(
-                    content, source_lang, target_lang, **kwargs
-                )
+                return await self._translate(content, source_lang, target_lang, **kwargs)
             except Exception as e:
                 raise e
 
@@ -140,11 +121,5 @@ class Translator:
 if __name__ == "__main__":
     translator = Translator()
     text = """"""
-    result = asyncio.run(
-        translator.translate(
-            text,
-            source_lang="English",
-            target_lang="Chinese",
-        )
-    )
+    result = asyncio.run(translator.translate(text, source_lang="English", target_lang="Chinese"))
     print(result)

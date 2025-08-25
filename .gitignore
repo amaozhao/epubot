@@ -180,3 +180,4 @@ cython_debug/
 *.epub
 .DS_Store
 .translation_state.json
+.ruff.toml
